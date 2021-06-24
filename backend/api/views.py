@@ -2,6 +2,7 @@ from datetime import timezone
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from rest_framework import response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
@@ -60,3 +61,28 @@ def create(request):
         # serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["POST"])
+def edit(request, pk):
+    try:
+        p = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return Response("Post does not exist to edit", status = status.HTTP_404_NOT_FOUND)
+    post = PostSerializer(instance=p, data=request.data)
+    if post.is_valid():
+        post.save()
+        return Response(post.data, status = status.HTTP_200_OK)
+    return Response(post.data, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(["GET"])
+def search(request,x):
+    try:
+        p = Post.objects.filter(title__icontains=x)
+    except Post.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    q = PostSerializer(p,many=True)
+    if not q:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    else:
+        return Response(q.data,status=status.HTTP_200_OK)
