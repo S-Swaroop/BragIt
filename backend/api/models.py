@@ -17,6 +17,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['-published_date']
 
 class Comment(models.Model):
     postconnect = models.ForeignKey(Post, on_delete=models.CASCADE)
