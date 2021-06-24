@@ -8,4 +8,5 @@ urlpatterns = [
     path('post/create/', views.create, name='create'),
     path("post/edit/<int:pk>/",views.edit,name="edit"),
     path("search/<str:x>/",views.search,name="search"),
+    path("post/verify/<int:pk>/",views.password,name="verify"),
 ]

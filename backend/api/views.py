@@ -6,7 +6,7 @@ from rest_framework import response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
-from .serializers import PostSerializer
+from .serializers import PasswordSerializer, PostSerializer
 from .models import Post
 from .utils import randompassword
 from django.core.mail import send_mail
@@ -94,3 +94,18 @@ def search(request,x):
         return Response(status=status.HTTP_404_NOT_FOUND)
     else:
         return Response(q.data,status=status.HTTP_200_OK)
+
+@api_view(["POST"])
+def password(request,pk):
+    try:
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    p = PasswordSerializer(data=request.data)
+    if p.is_valid():
+        if post.password == p.data["password"]:
+            return Response(status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
