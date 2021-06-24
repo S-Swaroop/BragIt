@@ -60,20 +60,28 @@ def create(request):
         # serializer.object.published_date = timezone.now()
         # serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["POST"])
+@api_view(["GET","POST"])
 def edit(request, pk):
-    try:
-        p = Post.objects.get(pk=pk)
-    except Post.DoesNotExist:
-        return Response("Post does not exist to edit", status = status.HTTP_404_NOT_FOUND)
-    post = PostSerializer(instance=p, data=request.data)
-    if post.is_valid():
-        post.save()
-        return Response(post.data, status = status.HTTP_200_OK)
-    return Response(post.data, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == "POST":
+        try:
+            p = Post.objects.get(pk=pk)
+        except Post.DoesNotExist:
+            return Response("Post does not exist to edit", status = status.HTTP_404_NOT_FOUND)
+        post = PostSerializer(instance=p, data=request.data)
+        if post.is_valid():
+            post.save()
+            return Response(post.data, status = status.HTTP_201_CREATED)
+        return Response(post.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'GET':
+        try:
+            p = Post.objects.get(pk=pk)
+        except Post.DoesNotExist:
+            return Response("Post does not exist to edit", status = status.HTTP_404_NOT_FOUND)
+        post = PostSerializer(p, many=False)
+        return Response(post.data, status=status.HTTP_200_OK)
     
 @api_view(["GET"])
 def search(request,x):
