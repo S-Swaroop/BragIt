@@ -1,21 +1,42 @@
+import axios from 'axios';
 import {React , useState } from 'react'
-import { Link , useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import './Form.css'
 
 
 function Form(props) {
     const history = useHistory();
+    const blogId = props.id || "" ; 
     const [title, setTitle] = useState(props.title || "")
     const [text, setText] = useState(props.text || "" )
     const [email, setEmail] = useState(props.email || "" )
 
+
+    const uri = "" ;
     const sumbitChanges = async(e)=>{
-        if(text && title && email){
+        var resp= 500 ;
+        if(blogId!==""){
+            resp = await axios.post(`${uri}/edit/${blogId}` , {
+                'id': blogId,
+                'title': title, 
+                'text': text, 
+                'email': email
+            })
+        }else{
+            resp = await axios.post(`${uri}/post/` , {
+                'title': title, 
+                'text': text, 
+                'email': email
+            })
+        }
+
+        if(resp.status===201){
+            alert('The generated password has been sent to the provided email id')
             history.push('/')
         }
         else{
-            alert('The generated password has been sent to the provided email id')
+            alert('shit')
         }
     }
 

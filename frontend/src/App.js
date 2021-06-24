@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Home from './components/Home/Home'
 import Post from './components/Post/Post'
 import Details from './components/Details/Details'
+import Edit from './components/Edit/Edit'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/post' component={Post}/>
+              <Route path='/edit/' component={Edit} />
               <Route path='/blogs' component={Details} />
           </Switch>
         </div>
