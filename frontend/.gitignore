@@ -1,14 +1,3 @@
-vir/
-db.sqlite3
-*.pyc
-__pycache__
-
-
-
-
-
-
-
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
