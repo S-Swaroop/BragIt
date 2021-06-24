@@ -82,7 +82,7 @@ def search(request,x):
     except Post.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     q = PostSerializer(p,many=True)
-    if not q:
+    if not len(p):
         return Response(status=status.HTTP_404_NOT_FOUND)
     else:
         return Response(q.data,status=status.HTTP_200_OK)
