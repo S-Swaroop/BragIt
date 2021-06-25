@@ -4,16 +4,18 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 
 function Details({location}) {
+    const uri ="";
 
     const [blogId, setBlogId] = useState();
     const [blog , setBlog] = useState([]);
     const currentUrl = location.search ; 
+
     useEffect(()=>{
         const {id} = queryString.parse(currentUrl)
         setBlogId(id);
         
         const getBlog = async(id)=>{
-            const blog = await axios.get(`uri/${id}`)
+            const blog = await axios.get(`${uri}/post/${id}`)
             if(blog.status!==200){
                 alert(`Blog doesn't exist !`)
                 return;
@@ -24,7 +26,6 @@ function Details({location}) {
         }
         
         getBlog(blogId) ; 
-
 
     }, [currentUrl, blogId])
     return (

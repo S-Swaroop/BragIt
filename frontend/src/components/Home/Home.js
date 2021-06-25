@@ -4,21 +4,20 @@ import './Home.css'
 import { Link } from 'react-router-dom';
 
 function Home() {
-    const [blogs , setBlogs] = useState([{
-       'id' : 1,
-        'title' : "test",
-        'text': "testaga;j;"
-    }]);
+    const uri = `https://bragdrf.pythonanywhere.com/?format=json` ;
+    
+    const [blogs , setBlogs] = useState([]);
     
 
 
-    // useEffect(()=>{
-    //     const getData = async()=>{
-    //         const data = await axios.get(`${uri}/`).then(res=>res.data)
-    //         setBlogs([...data]);
-    //     }
-    //     getData() ;
-    // }, [])
+    useEffect(()=>{
+        const getData = async()=>{
+            const data = await axios.get(`${uri}`).then(res=>res.data)
+            setBlogs([...data]);
+            console.log(blogs)
+        }
+        getData() ;
+    }, [blogs])
 
     return (
         <div >

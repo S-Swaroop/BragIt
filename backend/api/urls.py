@@ -10,4 +10,4 @@ urlpatterns = [
     path("search/<str:x>/", views.search, name="search"),
     path("post/verify/<int:pk>/", views.password, name="verify"),
     path("post/comment/<int:pk>/", views.comment, name="comment"),
-]
+] 

@@ -58,7 +58,7 @@ def create(request):
             else:
                 serializer.save(password=password,
                                 published_date=timezone.now())
-                fmessage = f'Use this password for deleting or editting your just created Post- {password}'
+                fmessage = f'Use this password for deleting or editing your just created Post- {password}'
                 email = request.data['email']
                 send_mail('Password for your post', fmessage,
                           settings.EMAIL_HOST_USER, [email], fail_silently=False)

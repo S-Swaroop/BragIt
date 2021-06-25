@@ -11,20 +11,21 @@ function Form(props) {
     const [title, setTitle] = useState(props.title || "")
     const [text, setText] = useState(props.text || "" )
     const [email, setEmail] = useState(props.email || "" )
-
+    const password = useState(props.password || "" );
 
     const uri = "" ;
     const sumbitChanges = async(e)=>{
         var resp= 500 ;
         if(blogId!==""){
-            resp = await axios.post(`${uri}/edit/${blogId}` , {
+            resp = await axios.post(`${uri}/post/edit/${blogId}` , {
                 'id': blogId,
                 'title': title, 
                 'text': text, 
-                'email': email
+                'email': email,
+                'password': password
             })
         }else{
-            resp = await axios.post(`${uri}/post/` , {
+            resp = await axios.post(`${uri}/post/create` , {
                 'title': title, 
                 'text': text, 
                 'email': email
