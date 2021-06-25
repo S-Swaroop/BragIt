@@ -3,12 +3,13 @@ import queryString from 'query-string'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
-function Details({location}) {
-    const uri ="";
 
-    const [blogId, setBlogId] = useState();
-    const [blog , setBlog] = useState([]);
+function Details({location}) {
+    const uri = `https://bragdrf.pythonanywhere.com` ;
     const currentUrl = location.search ; 
+    const [blogId, setBlogId] = useState("");
+    const [blog , setBlog] = useState([]);
+    
 
     useEffect(()=>{
         const {id} = queryString.parse(currentUrl)
@@ -16,7 +17,7 @@ function Details({location}) {
         
         const getBlog = async(id)=>{
             const blog = await axios.get(`${uri}/post/${id}`)
-            if(blog.status!==200){
+            if(blog.status===404){
                 alert(`Blog doesn't exist !`)
                 return;
             }else{
@@ -27,7 +28,7 @@ function Details({location}) {
         
         getBlog(blogId) ; 
 
-    }, [currentUrl, blogId])
+    }, [currentUrl, blogId, uri])
     return (
         <div>
             <div className="card" >
@@ -38,7 +39,7 @@ function Details({location}) {
                     <p>{blog.text}</p>
                 </div>
             </div>
-            <Link to={`/edit/?id=${blogId}`}/>
+            <Link to={`/edit/?id=${blogId}`}><button>edit</button></Link>
         </div>
     )
 }

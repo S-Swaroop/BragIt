@@ -4,7 +4,7 @@ import './Home.css'
 import { Link } from 'react-router-dom';
 
 function Home() {
-    const uri = `https://bragdrf.pythonanywhere.com/?format=json` ;
+    const uri = `https://bragdrf.pythonanywhere.com/` ;
     
     const [blogs , setBlogs] = useState([]);
     
@@ -14,10 +14,9 @@ function Home() {
         const getData = async()=>{
             const data = await axios.get(`${uri}`).then(res=>res.data)
             setBlogs([...data]);
-            console.log(blogs)
         }
         getData() ;
-    }, [blogs])
+    }, [blogs, uri])
 
     return (
         <div >
@@ -25,7 +24,7 @@ function Home() {
                 {blogs.map(blog => <div className="card">
                     <div className="card-title" ><h1>{blog.title}</h1></div>
                     <div className="card-body" ><h1>{blog.text}</h1></div>
-                    <Link to={`blogs/?id=${blog.id}`}><p>read more</p></Link>
+                    <Link to={`blogs/?id=${blog.id}/`}><p>read more</p></Link>
                 </div>)}
             </ul>
         </div>
