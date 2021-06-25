@@ -2,6 +2,7 @@ from datetime import timezone
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.views.decorators import csrf
 from rest_framework import response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -12,17 +13,18 @@ from .utils import randompassword
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-
+@csrf_exempt
 @api_view(['GET'])
 def post_list(request):
     post = Post.objects.all()
     serializer = PostSerializer(post, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(['GET'])
 def post_detail(request, pk):
     try:
@@ -32,7 +34,7 @@ def post_detail(request, pk):
     serializer = PostSerializer(post, many=False)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(['DELETE'])
 def delete(request, pk):
     try:
@@ -42,7 +44,7 @@ def delete(request, pk):
     post.delete()
     return Response('Task deleted', status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(['POST'])
 def create(request):
     serializer = PostSerializer(data=request.data)
@@ -68,7 +70,7 @@ def create(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+@csrf_exempt
 @api_view(["GET", "POST"])
 def edit(request, pk):
     if request.method == "POST":
@@ -89,7 +91,7 @@ def edit(request, pk):
         post = PostSerializer(p, many=False)
         return Response(post.data, status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(["GET"])
 def search(request, x):
     try:
@@ -102,7 +104,7 @@ def search(request, x):
     else:
         return Response(q.data, status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(["POST"])
 def password(request, pk):
     try:
@@ -118,7 +120,7 @@ def password(request, pk):
     else:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-
+@csrf_exempt
 @api_view(["GET", "POST"])
 def comment(request, pk):
     if request.method == 'GET':
