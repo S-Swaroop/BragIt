@@ -8,8 +8,6 @@ function Home() {
     
     const [blogs , setBlogs] = useState([]);
     
-
-
     useEffect(()=>{
         const getData = async()=>{
             const data = await axios.get(`${uri}`).then(res=>res.data)

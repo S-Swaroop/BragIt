@@ -21,7 +21,7 @@ function Edit({location}) {
         const {id} = queryString.parse(currentUrl)
         setBlogId(id);
         const getData = async(id)=>{
-            const data = await axios.get(`${uri}/post/${id}`).then(res=>res.data)
+            const data = await axios.get(`${uri}/post/${id}/`).then(res=>res.data)
             setTitle(data.title);
             setText(data.text);
             setPassword(data.password)
@@ -33,7 +33,7 @@ function Edit({location}) {
 
     const submitData= async(e)=>{
         e.preventDefault();
-        const resp = await axios.post(`${uri}/post/edit/${blogId}` , {
+        const resp = await axios.post(`${uri}/post/edit/${blogId}/` , {
             'id': blogId,
             'title': title, 
             'text': text, 
