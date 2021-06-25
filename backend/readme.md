@@ -15,10 +15,15 @@ schema
 Other endpoints, schema not mentioned, "sharan smjh lega"
 
 host/post/pk/  -- Post detail,
+
 host/post/delete/pk/ -- Post delete
+
 host/post/edit/pk/ -- Post edit
+
 host/search/x/ -- Search (x is query)
+
 host/post/verify/pk/ -- Password verify
+
 host/post/comment/pk/ -- Comment for that post
 
 ## Link
