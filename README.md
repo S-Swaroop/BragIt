@@ -66,3 +66,5 @@ We would also like to design an audio room feature for the community, so that be
 [Sauparna Gupta](https://github.com/Saup21)
 
 [Sharan Swaroop](https://github.com/S-Swaroop)
+
+[Krishanu Biswas](https://github.com/krishanu69)
