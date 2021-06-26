@@ -10,8 +10,8 @@ Our application provides a platform where anyone can share their thoughts anonym
 
 Our application provides the following functionalities :
 
-- creating, editing and deleting posts
-- commenting on a post
+- creating, editing and deleting posts (You will love the implementation, even your email address is not stored in the database, it is just used once and discarded!!)
+- commenting on a post anonymously.
 
 
 
@@ -24,35 +24,19 @@ UI: An easy-to-use and all-inclusive UI was our main priority and with that in m
 The development stage: To divide the work evenly among teammates so that noone is pressured with a lot of responsibilities we decided to divide into two group, one to impletment a REST Api in the backend and another to create the UI and frontend logic using ReactJs, so that both these groups could work independently and efficiently.
 
 
-
 ## 🤼‍♂️ Challenges we ran into:
 
-During the ideation stage, choosing to build a community-builder/supporter rather than a solution that focused more on the problem of organized social distancing and still promoting fun was a difficult one, but we soon determined that it would be more along with the theme of the hackathon if we did something fun and spontaneous.
+During the ideation stage and system design we had a tough time coming up with the anonymous password approach. We also made sure after brainstorming that we will not even store the email of the ueser once it has been used! 
 
-While developing the app we came across many problems such as configuring the firebase for smooth data retrieval. After solving the same the app development team was using cards for the first time and wasn't able to see all cards at once as it was not scrollable despite using the dart scroll view package. We researched this on stack overflow and official flutter documentation and then we were able to fix all these issues and managed to finalize our app within the provided time.
+While developing the app we came across many problems such as configuring the backend rest api for smooth data retrieval. We had tough time arranging and styling the react components as well because there were quite a few of them and we did not had prior experience working with the same. We also did have problems integrating the search component in the home page, because of different endpoints used in both. We did run into a few problems while deploying as well, as it was our first time deploying multi-page react application.
 
 Bringing the whole team in line with the vision and vibe of the theme whilst maintaining an unbiased perspective, and promoting innovative ideas was a tumultuous task.
 
 ## 👏 Accomplishments we are proud of:
 
-We are proud to have built the live events feature into the app, that fetches data from the server and also allows the participants to create another event. This feature shows our inclination towards the importance of teamwork, collaboration, and effective communication, some key principles which we tried to incorporate while executing this project. Other than this feature, we are extremely proud of the video and website team who have put huge efforts into the making of this project.
- 
-## 📚 What we learned :
+We are proud of to come up and successfully implement and maintain the anonymity of the user, even though we do take the email at one point to provide the user with password we never store it.
 
-UI Team: We were able to further hone our design - decision-making skills by scouring through multiple dribble categories for inspiration and broadening our knowledge. We learned the importance of a consistent Color Palette and the design liberty that restricting to 4 primary colors brings to the table (sounds ironic).
-
-App Dev Team: We were successfully able to deploy full CRUD functionality into the flutter app, on short notice, this was our first time making something like the live events section, which certainly helped nurture confidence in development skills.
-
-Web team: This was the first time making a product/ company portfolio type website, it was a humbling yet inspiring experience. I hope to venture much deeper into the vast ocean of web development and incorporate hard backend technologies into similar websites to revolutionize the web sphere.
-
-Video Making Team: I learned how to make complicated 3D transitions in After Effects and realized the time and effort that goes into making plugins for video editors, it put the youtube editor’s hard work into perspective, my respect for animators has grown sincerely.
-
-## 🤔 What’s next for our product :
-
-We would like to add a robust and secure authentication system built from scratch and monitor user data to better re-design and develop our product when we introduce it to market or scale it for other similar niche communities.
-
-We would also like to design an audio room feature for the community, so that beach lovers can talk about their latest beach trends and news right on our platform and don’t have to create a separate discord server. 
-
+## Screenshots
 
 ## Project Links
 
