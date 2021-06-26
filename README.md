@@ -38,10 +38,36 @@ We are proud of to come up and successfully implement and maintain the anonymity
 
 ## Screenshots
 
+### Home Page
+
+![Home-Page](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/homepage.png?raw=true)
+
+### Create Post
+
+![Create-Post](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/createpost.png?raw=true)
+
+### Comment
+
+![Comment](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/comment.png?raw=true)
+
+### Password
+
+![Password](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/password.png?raw=true)
+
+### Edit & Delete Post
+
+![Password](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/edit.png?raw=true)
+
+### Confirmation Page
+
+![Confirmation](https://github.com/Rejectzz/JIT-HACK/blob/master/screnshots/confirmation.png?raw=true)
+
 ## Project Links
 
 [🖥️ Website Link](https://bragit.netlify.app/)
 
+## Demo Video Link
+[Video](https://drive.google.com/file/d/1tTDoIVPILp-zy4TTsHnMdmZr3PSZTxYl/view?usp=sharing)
 
 ## Team Links
 
