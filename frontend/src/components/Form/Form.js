@@ -58,12 +58,28 @@ function Form(props) {
             <p>Post Created Successfully !</p>
             <button className="btn btn-primary" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
         </ReactModal>
-            <form >
+            {/* <form >
                 <input type="text" className="input title" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
                 <input type="text" className="input text" value={text} onChange={(e)=>setText(e.target.value)} />
                 <input type="text" className="input email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                 <input type="submit" className="submit-button" onClick={(e)=>sumbitChanges(e)} />
-            </form>
+            </form> */}
+            <div className="jumbotron">
+                <div className="container">
+                    <div className="form-group">
+                        <input type="text" className="input title form-control" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" className="input text form-control" value={text} onChange={(e)=>setText(e.target.value)} />
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="input email form-control" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" className="submit-button form-control" onClick={(e)=>sumbitChanges(e)} />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

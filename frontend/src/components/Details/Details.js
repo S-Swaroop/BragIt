@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
+import "./Details.css"
 
 //Component imports : 
 import Comments from '../Comments/Comments';
@@ -61,21 +62,33 @@ function Details({location}) {
     }
     
     return (
-        <div id="custom-modal">
-            <div className="card" >
-                <div className="card-title">
-                    <h1>{blog.title}</h1>
-                </div>
-                <div className="card-body">
-                    <p>{blog.text}</p>
+        <div id="custom-modal" className="container">
+            <div className="row justify-content-center">
+                <div className="col-12">
+                    <div className="container">
+                        <div className="card outer" >
+                            <div className="card-title">
+                                <h1>{blog.title}</h1>
+                            </div>
+                            <div className="card-body">
+                                <p>{blog.text}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Comments id={blogId} />
-            <button onClick={()=>setIsOpen(!isOpen)}>Edit</button>
-            <ReactModal isOpen={isOpen} style={customStyles}>
-                <h4>Enter Password : </h4>
-                <input type="password" value={pass} onChange={(e)=>setPass(e.target.value)} onKeyPress={(e)=>e.key==='Enter'? checkPass(e) : null} />
-            </ReactModal>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <Comments id={blogId} />
+                        <button onClick={()=>setIsOpen(!isOpen)}>Edit</button>
+                        <ReactModal isOpen={isOpen} style={customStyles}>
+                            <h4>Enter Password : </h4>
+                            <input type="password" value={pass} onChange={(e)=>setPass(e.target.value)} onKeyPress={(e)=>e.key==='Enter'? checkPass(e) : null} />
+                        </ReactModal>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
