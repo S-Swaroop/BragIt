@@ -1,8 +1,8 @@
 # <p align = "center"> BragIt </p>
 
-## 💡Inspiration
+## Tech-Stack
 
-What is the first thing which comes to your mind when you hear the words beach, ocean, and summer, for our team it was fun and amusement. Another thing our team strongly believes in is Collaboration. And hence, we got to market research to find the blend of the two ideas and surprisingly found that there aren’t any applications that support community building and bring people together to collaborate and have summer fun by doing activities like playing volleyball, frisbee, and other water sports like jet skiing, etc. together, and hence, created our solution BeachMates.
+ReactJs, Django-Rest-Framework, JavaScript, SQLite, Python, Netlify, Pythonanywhere, Bootstrap, CSS, HTML
 
 ## 💻 What it does
 
@@ -67,7 +67,7 @@ We are proud of to come up and successfully implement and maintain the anonymity
 [🖥️ Website Link](https://bragit.netlify.app/)
 
 ## Demo Video Link
-[Video](https://drive.google.com/file/d/1tTDoIVPILp-zy4TTsHnMdmZr3PSZTxYl/view?usp=sharing)
+[Video](https://youtu.be/C6c1MDh1jcc)
 
 ## Team Links
 
