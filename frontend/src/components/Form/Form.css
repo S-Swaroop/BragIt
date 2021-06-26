@@ -1,0 +1,41 @@
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+
+.custom-button {
+    width: 20%;
+    border-radius: 50px;
+}
+.custom-button::after{
+    background-color: mediumseagreen;
+}
+body{
+    background-color: #efeff5;
+  }
+  
+.outer{
+margin: auto;
+position:relative;
+top:40px;
+
+background:#ebecee;
+border-radius:50px;
+box-shadow:4px 4px 6px rgba(196, 195, 195, 0.8), -4px -4px 6px rgba(255, 255, 255, 0.80);
+}
+  
+.card {
+    border-radius:0px;
+    /* -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25); */
+    border: none;
+    background-color: inherit;
+    
+}
+.heading { 
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

@@ -58,25 +58,28 @@ function Form(props) {
             <p>Post Created Successfully !</p>
             <button className="btn btn-primary" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
         </ReactModal>
-            {/* <form >
-                <input type="text" className="input title" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
-                <input type="text" className="input text" value={text} onChange={(e)=>setText(e.target.value)} />
-                <input type="text" className="input email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                <input type="submit" className="submit-button" onClick={(e)=>sumbitChanges(e)} />
-            </form> */}
-            <div className="jumbotron">
-                <div className="container">
-                    <div className="form-group">
-                        <input type="text" className="input title form-control" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
-                    </div>
-                    <div class="form-group">
-                        <textarea type="text" className="input text form-control" value={text} onChange={(e)=>setText(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="input email form-control" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" className="submit-button form-control" onClick={(e)=>sumbitChanges(e)} />
+            <div className="jumbotron outer mt-5">
+                <div className="container mt-2">
+                    <div className="row justify-content-center ">
+                        <div className="row justify-content-center">
+                            <h4 className="text-dark heading my-2 ">Create Thoughts</h4>
+                        </div>
+                            <div className="container row ">
+                                <form >
+                                    <div className="form-group mb-3 mt-2">
+                                        <input className="form-control" placeholder="example@gmail.com" type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
+                                    </div>
+                                    <div className="form-group mb-3">
+                                        <input className="form-control" placeholder="Title..." type="text" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
+                                    </div>
+                                    <div className="form-group mb-3">
+                                        <textarea className="form-control"  type="text" value={text} onChange={(e)=>{setText(e.target.value)}} />
+                                    </div>
+                                    <div className=" row justify-content-center mb-3 mt-4">
+                                        <input className="btn btn-outline-success my-2 my-sm-0 custom-button mt-3"  type="submit" onClick={(e)=>sumbitChanges(e)} />
+                                    </div>
+                                </form>
+                            </div>
                     </div>
                 </div>
             </div>

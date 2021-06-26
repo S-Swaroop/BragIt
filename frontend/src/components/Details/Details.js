@@ -62,34 +62,43 @@ function Details({location}) {
     }
     
     return (
-        <div id="custom-modal" className="container">
+        // <div id="custom-modal" className="container">
+        <>
+        <div id="custom-modal">
+            <ReactModal isOpen={isOpen} style={customStyles}>
+                <i onClick={()=>setIsOpen(false)}  class="fa fa-times-circle cross"></i>
+                <h4 className="small">Enter Password : </h4>
+                <input className="form-control form-control-sm" type="password" value={pass} onChange={(e)=>setPass(e.target.value)} onKeyPress={(e)=>e.key==='Enter'? checkPass(e) : null} />
+            </ReactModal>
+        </div>
+        <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-12">
-                    <div className="container">
-                        <div className="card outer" >
-                            <div className="card-title">
-                                <h1>{blog.title}</h1>
+                    <div className="card">
+                        <div className="card-title">
+                            <h1>{blog.title}</h1>
+                        </div>
+                        <div className="card-body">
+                            <div className="row">
+                                <p className="text-body">{blog.text}</p>
                             </div>
-                            <div className="card-body">
-                                <p>{blog.text}</p>
+                            <div className="row">
+                                <div className="col-10"></div>
+                                <div className="col-2">
+                                    <button className="btn btn-outline-success" onClick={(e)=>setIsOpen(true)} >Edit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <Comments id={blogId} />
-                        <button onClick={()=>setIsOpen(!isOpen)}>Edit</button>
-                        <ReactModal isOpen={isOpen} style={customStyles}>
-                            <h4>Enter Password : </h4>
-                            <input type="password" value={pass} onChange={(e)=>setPass(e.target.value)} onKeyPress={(e)=>e.key==='Enter'? checkPass(e) : null} />
-                        </ReactModal>
-                    </div>
+            <div className="row justify-content-center mt-5">
+                <div className="col-12">
+                    <Comments id={blog.id} />
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

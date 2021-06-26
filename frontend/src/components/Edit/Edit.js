@@ -84,25 +84,35 @@ function Edit({location}) {
 
     return (
         <>
-        <div className="container mt-3">
-            <form  >
-                <div className="mb-3">
-                    <label for="titleInput" className="form-label">Title </label>
-                    <input type="text" className="input-title form-control" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
+        <div className="container  mt-5">
+            <div className="outer jumbotron ">
+                <div className="container">
+                    <form  >
+                        <div className="row mb-3">
+                            <input type="text" className="input-title form-control" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
+                        </div>
+                        <div className=" row mb-3">
+                            <textarea type="text" className="input-text form-control" value={text} onChange={(e)=>setText(e.target.value)} />
+                        </div>
+                        <div className="row justify-content-between ">
+                            <div className="col-1 justify-content-center">
+                                <input type="submit" className="submit-button btn btn-outline-success mb-3" onClick={(e)=>submitData(e)} /> 
+                            </div>
+                            <div className="col-1">
+                                <button className="btn btn-outline-danger mb-3 danger"  onClick={(e)=>deletePost(e)} >Delete</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div className="mb-3">
-                    <label for="textInput" className="form-label">Text </label>
-                    <textarea type="text" className="input-text form-control" value={text} onChange={(e)=>setText(e.target.value)} />
-                </div>
-            <button className="submit-button btn btn-primary mb-3 mr-100"  onClick={(e)=>deletePost(e)} >Delete Post</button>
-            <input type="submit" className="submit-button btn btn-primary mb-3" onClick={(e)=>submitData(e)} />
-        </form>
-        <div id="custom-modal">
-            <ReactModal isOpen={messageModal} style={customStyles} >
-                <p>{message}</p>
-                <button className="btn btn-primary" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
-            </ReactModal>
-        </div>
+            </div>
+            <div id="custom-modal">
+                <ReactModal isOpen={messageModal} style={customStyles} >
+                    <p>{message}</p>
+                    <div className="row justify-content-center">
+                        <button className="btn btn-outline-success custom-button" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
+                    </div>
+                </ReactModal>
+            </div>
         
         </div>
         </>

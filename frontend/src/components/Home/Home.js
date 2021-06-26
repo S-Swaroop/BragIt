@@ -60,16 +60,20 @@ function Home({location}) {
             <div id="custom-modal">
             <ReactModal isOpen={modal} style={customStyles} >
                 <h2>No such Blogs</h2>
-                <Link to='/'><button onClick={(e)=>{setModal(false)}}>Ok</button></Link>
+                <div className="container">
+                    <div className="row justify-content-center ">
+                        <Link to='/' className="btn btn-outline-success ok-button" onClick={(e)=>{setModal(false)}}>Ok</Link>
+                    </div>
+                </div>
             </ReactModal>
             </div>
             <ul className="blog-list container mt-4">
                 {blogs.map(blog =>
                 <div className="container outer my-5">
-                    <div className=" card  ">
+                    <div className=" card ">
                         <div className="container">
                         <div className="card-title text-dark" ><h1>{blog.title}</h1></div>
-                            <div className="card-body text-dark" ><h1>{blog.text}</h1></div>
+                            <div className="card-body text-dark" ><p className="blog-text">{blog.text}</p></div>
                             <Link to={`blogs/?id=${blog.id}/`}><button className="btn btn-outline-success mb-3 ">Read More</button></Link>
                         </div>
                     </div>

@@ -1,0 +1,12 @@
+.comment { 
+    background-color: rgb(182, 252, 182) !important;
+    border: none;
+}
+input { 
+    width: 100%;
+}
+
+.fa .fa-paper-plane .plane ::before{
+    height: 7rem;
+    width: 3rem;
+}

@@ -1,27 +1,29 @@
 body{
-    background-color: #efeff5;
-  }
-  
-  .outer{
-    margin:0 auto;
-    position:relative;
-    top:40px;
-    
-    background:#ebecee;
-    border-radius:16px;
-    box-shadow:4px 4px 6px rgba(196, 195, 195, 0.8), -4px -4px 6px rgba(255, 255, 255, 0.80);
-  }
-  
-.card {
-    border-radius:0px;
-    /* -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.25); */
-    border: none;
-    background-color: inherit;
-    
+background-color: #efeff5;
+}
+.ok-button {
+    text-align: center;
+    width: 50%;
+    border-radius: 50px;
+}
+.blog-text{
+    font-size: larger;
+    font-family: 'Nunito';
+}
+.outer{
+margin:0 auto;
+position:relative;
+top:40px;
+
+background:#ebecee;
+border-radius:16px;
+box-shadow:4px 4px 6px rgba(196, 195, 195, 0.8), -4px -4px 6px rgba(255, 255, 255, 0.80);
 }
 
+.card {
+    border: none;
+    background-color: inherit;
+}
 
 .card-title {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
