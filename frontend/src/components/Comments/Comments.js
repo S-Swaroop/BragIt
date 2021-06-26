@@ -12,20 +12,19 @@ function Comments({id}) {
     useEffect(() => {
 
         const getComments = async()=>{
-            const data = await axios.get(`${uri}/post/comment/${blogId}/`).then(res=>res.data).catch(err=>console.log(err))
-            if(data===undefined){
-                setComments([])
-            }else{
-            setComments([...data]);
-            }
+            const data = await axios.get(`${uri}/post/comment/${blogId}/`).then(res=>setComments([...res.data])).catch(err=>console.log(err))
+            
+            
         }
         getComments(blogId)
     }, [comments, uri, blogId])
 
-    const sumbitComment = async(e)=>{
-        e.preventDefault(); 
-        const data = await axios.post(`${uri}/post/comment/${blogId}/`).then(res=>res.data).catch(err=>console.log(err))
-        setComments([...data]);
+    const sumbitComment = async(e)=>{   
+        e.preventDefault();
+        const data = await axios.post(`${uri}/post/comment/${blogId}/`, {
+            'comment': comment
+        }).then(res=>setComments([...res.data])).catch(err=>console.log(err))
+        ;
     }
 
     return (
@@ -35,7 +34,7 @@ function Comments({id}) {
                 <input type="submit" onClick={(e)=>sumbitComment(e)} /> 
             </form>
             <div className="container">
-                {comments.map(comm =><p>{comm.text}</p>)}
+                {comments.map(comm =><p>{comm.comment}</p>)}
             </div>
         </div>
     )

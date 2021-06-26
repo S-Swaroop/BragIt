@@ -1,6 +1,5 @@
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
-
 import Home from './components/Home/Home'
 import Post from './components/Post/Post'
 import Details from './components/Details/Details'
@@ -9,6 +8,7 @@ import Edit from './components/Edit/Edit'
 import './App.css'
 
 function App() {
+
   return (
     <Router>
         <div>

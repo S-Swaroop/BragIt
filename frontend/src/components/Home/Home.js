@@ -6,19 +6,21 @@ import { Link } from 'react-router-dom';
 //CSS:
 import './Home.css'
 
-function Home() {
+function Home({location}) {
     const uri = `https://bragdrf.pythonanywhere.com/` ;
     
     //States:
     const [blogs , setBlogs] = useState([]);
 
     //Fetching Data
-    useEffect(()=>{
+    useEffect(()=>
+    {
         const getData = async()=>{
-            const data = await axios.get(`${uri}`).then(res=>res.data)
-            setBlogs([...data]);
+            const data = await axios.get(`${uri}/`).then(res=>res.data).catch(err=>console.log(err))
+            setBlogs([...data])
         }
-        getData() ;
+        
+        getData();
     }, [blogs, uri])
 
     return (
