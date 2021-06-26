@@ -23,7 +23,7 @@ function App() {
                 <li>
                   <form  >
                     <div className="form-group d-flex" >
-                      <input type="text" value={search} placeholder="search..." onChange={(e)=>setSearch(e.target.value)} className="form-control" />
+                      <input type="text" value={search} placeholder="search..." onChange={(e)=>setSearch(e.target.value)} className="form-control from-control-sm" />
                       <Link to={`/?search=${search}`} ><input type="submit" value="search" className="btn btn-outline-success my-2 my-sm-0"/></Link>
                     </div>
                   </form>
