@@ -1,0 +1,16 @@
+.form-control { 
+  border-radius: 7.5px !important;
+}
+.btn {
+  margin-left: 5px;;
+}
+.nav-link{ 
+  font-weight: 700;
+  font-size: larger;
+}
+.navbar { 
+  background-color: #bebec2 !important;
+  box-shadow: -1px 9px 61px -8px rgba(0,0,0,0.45);
+-webkit-box-shadow: -1px 9px 61px -8px rgba(0,0,0,0.45);
+-moz-box-shadow: -1px 9px 61px -8px rgba(0,0,0,0.45);
+}

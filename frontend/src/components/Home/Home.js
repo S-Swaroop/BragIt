@@ -64,11 +64,17 @@ function Home({location}) {
             </ReactModal>
             </div>
             <ul className="blog-list container mt-4">
-                {blogs.map(blog => <div className="card mb-3 ">
-                    <div className="card-title" ><h1>{blog.title}</h1></div>
-                    <div className="card-body" ><h1>{blog.text}</h1></div>
-                    <Link to={`blogs/?id=${blog.id}/`}><p className="btn btn-primary">read more</p></Link>
-                </div>)}
+                {blogs.map(blog =>
+                <div className="container outer my-5">
+                    <div className=" card  ">
+                        <div className="container">
+                        <div className="card-title text-dark" ><h1>{blog.title}</h1></div>
+                            <div className="card-body text-dark" ><h1>{blog.text}</h1></div>
+                            <Link to={`blogs/?id=${blog.id}/`}><button className="btn btn-outline-success mb-3 ">Read More</button></Link>
+                        </div>
+                    </div>
+                </div>
+                )}
             </ul>
         </div>
     )
