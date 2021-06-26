@@ -1,12 +1,30 @@
+//Dependency imports:
 import {React, useState, useEffect } from 'react'
 import queryString from 'query-string'
 import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
 
+//Component imports : 
+import Comments from '../Comments/Comments';
 
 function Details({location}) {
     const history = useHistory();
+
+    //Modal component design : 
+    ReactModal.setAppElement(document.getElementById('custom-modal'))
+    const customStyles = {
+        content: {
+          top: '30%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+        },
+      };
+
+    //States :
     const uri = `https://bragdrf.pythonanywhere.com` ;
     const currentUrl = location.search ; 
     const [blogId, setBlogId] = useState("");
@@ -14,6 +32,7 @@ function Details({location}) {
     const [isOpen, setIsOpen] = useState(false)
     const [pass, setPass] = useState("")
 
+    //Fetching Data : 
     useEffect(()=>{
         const {id} = queryString.parse(currentUrl)
         setBlogId(id);
@@ -28,11 +47,10 @@ function Details({location}) {
                 return;
             }
         }
-        
         getBlog(blogId) ; 
-
     }, [currentUrl, blogId, uri])
 
+    //Event Handlers :
     const checkPass = (e)=>{
         e.preventDefault();
         if(e.target.value== blog.password){
@@ -41,8 +59,9 @@ function Details({location}) {
             alert(`incorrect password`)
         }
     }
+    
     return (
-        <div>
+        <div id="custom-modal">
             <div className="card" >
                 <div className="card-title">
                     <h1>{blog.title}</h1>
@@ -51,12 +70,12 @@ function Details({location}) {
                     <p>{blog.text}</p>
                 </div>
             </div>
+            <Comments id={blogId} />
             <button onClick={()=>setIsOpen(!isOpen)}>Edit</button>
-            <ReactModal isOpen={isOpen} >
+            <ReactModal isOpen={isOpen} style={customStyles}>
                 <h4>Enter Password : </h4>
                 <input type="password" value={pass} onChange={(e)=>setPass(e.target.value)} onKeyPress={(e)=>e.key==='Enter'? checkPass(e) : null} />
             </ReactModal>
-            {/* <Link to={`/edit/?id=${blogId}`}><button>edit</button></Link> */}
         </div>
     )
 }
