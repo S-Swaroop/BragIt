@@ -56,7 +56,9 @@ function Form(props) {
         <div className="container" id="custom-modal">
         <ReactModal isOpen={isOpen} style={customStyles} >
             <p>Post Created Successfully !</p>
-            <button className="btn btn-primary" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
+            <div className="row justify-content-center">
+                <button className="btn btn-outline-success custom-button-my-own" onClick={(e)=>okGotIt(e)}>Ok Got it!</button>
+            </div>
         </ReactModal>
             <div className="jumbotron outer mt-5">
                 <div className="container mt-2">
