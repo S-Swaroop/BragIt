@@ -36,7 +36,7 @@ function Comments({id}) {
             <form className="container row justify-content-center" >
             <div className="col-2"></div>
                 <div className="col-8 justify-content-center">
-                    <input className="form-control" placeholder="comment...." type="text" value={comment} onChange={(e)=>{setComment(e.target.value)}} />
+                    <input className="form-control" placeholder="comment...." type="text" value={comment} onChange={(e)=>{setComment(e.target.value)}} onKeyPress={(e)=>e.key==="Enter"?sumbitComment(e):null} />
                 </div>
                 <div className="col-2 justify-content-center">
                     <i className="fa fa-paper-plane plane" onClick={(e)=>sumbitComment(e)} />
